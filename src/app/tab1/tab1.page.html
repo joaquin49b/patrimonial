@@ -1,17 +1,37 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 1
+      Añadir patrimonio
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+
+  <form [formGroup]="patrimonial">
+    <ion-item>
+      <ion-label>Categoría</ion-label>
+      <ion-select formControlName="category" placeholder="Selecciona una categoría">
+        <ion-select-option *ngFor="let cat of categories" [value]="cat">
+          {{ cat }}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Fecha</ion-label>
+      <ion-datetime formControlName="date" displayFormat="MM/DD/YYYY" min="1994-03-14"></ion-datetime>
+    </ion-item>
+
+
+    <ion-item>
+      <ion-label>Cantidad</ion-label>
+      <ion-input formControlName="patrimonialValue"></ion-input>
+    </ion-item>
+
+    <ion-button expand="block" [disabled]="!patrimonial.valid" (click)="onSubmit()">Guardar</ion-button>
+  </form>
+
+  
 </ion-content>
