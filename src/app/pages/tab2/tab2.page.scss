@@ -1,0 +1,17 @@
+.mat-header-cell {
+    color: #000000;
+}
+
+.mat-table {
+    background: #0dff0000;
+    width: 100%;
+}
+
+.mat-cell, .mat-footer-cell {
+    color: #000000;
+
+}
+
+mat-row, mat-header-row, mat-footer-row, th.mat-header-cell, td.mat-cell, td.mat-footer-cell {
+    border-bottom-color:#00000038;
+}

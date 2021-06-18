@@ -18,7 +18,8 @@ export class Tab1Page implements OnInit {
   ngOnInit() {
     this.patrimonial = this.formBuilder.group({
       category: ['', Validators.required],
-      patrimonialValue: ["", Validators.required],
+      initPatrimonialValue: ['', Validators.required],
+      endPatrimonialValue: ['', Validators.required],
       date: ['', Validators.required],
     });
   }
@@ -27,20 +28,35 @@ export class Tab1Page implements OnInit {
     console.log('Mostramos resultados antes de guardar');
     console.log(this.patrimonial.value);
 
-    const recoveredData = localStorage.getItem('patrimonial');
-    ;
+    let dateformat = this.patrimonial.value.date.split('-');
+    dateformat = `${dateformat[0]}-${dateformat[1]}`;
 
+    this.patrimonial.value.date = dateformat;
+
+    const recoveredData = localStorage.getItem('patrimonial');
 
     if (recoveredData == null) {
       localStorage.setItem('patrimonial', JSON.stringify([this.patrimonial.value]));
 
     } else {
       let data = JSON.parse(recoveredData);
-      data.push(this.patrimonial.value);
-      localStorage.setItem('patrimonial', JSON.stringify(data));
+
+      const data_filter = data.filter(this.duplicate, this);
+
+      data_filter.push(this.patrimonial.value)
+      localStorage.setItem('patrimonial', JSON.stringify(data_filter));
 
     }
 
-    console.log(localStorage.getItem('patrimonial'));
   }
+
+  private duplicate(element): boolean {
+    if (element.date == this.patrimonial.value.date && element.category == this.patrimonial.value.category) {
+      return false
+    }
+    return true;
+  }
+
+
 }
+

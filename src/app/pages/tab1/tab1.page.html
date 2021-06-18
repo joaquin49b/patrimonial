@@ -15,14 +15,21 @@
 
     <ion-item>
       <ion-label>Fecha</ion-label>
-      <ion-datetime formControlName="date" displayFormat="MM/DD/YYYY" min="1994-03-14"></ion-datetime>
+      <ion-datetime formControlName="date" displayFormat="MMM/YYYY" min="1994-03"></ion-datetime>
     </ion-item>
 
 
     <ion-item>
-      <ion-label>Cantidad</ion-label>
-      <ion-input formControlName="patrimonialValue" class="ion-text-right" type="number"></ion-input>
+      <ion-label>Cantidad Inicial</ion-label>
+      <ion-input formControlName="initPatrimonialValue" class="ion-text-right" type="number"></ion-input>
+    <ion-icon slot="end" name="logo-euro"></ion-icon> 
     </ion-item>
+    <ion-item>
+      <ion-label>Cantidad final</ion-label>
+      <ion-input formControlName="endPatrimonialValue" class="ion-text-right" type="number"></ion-input>
+    <ion-icon slot="end" name="logo-euro"></ion-icon> 
+    </ion-item>
+
 
     <ion-button expand="block" [disabled]="!patrimonial.valid" (click)="onSubmit()">Guardar</ion-button>
   </form>
