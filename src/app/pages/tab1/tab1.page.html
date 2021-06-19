@@ -6,7 +6,7 @@
   <form [formGroup]="patrimonial">
     <ion-item>
       <ion-label>Categoría</ion-label>
-      <ion-select formControlName="category" placeholder="Selecciona una categoría">
+      <ion-select formControlName="category" placeholder="Selecciona una categoría" interface="popover" aria-haspopup="listbox" mode="ios">
         <ion-select-option *ngFor="let cat of categories" [value]="cat">
           {{ cat }}
         </ion-select-option>
@@ -15,7 +15,7 @@
 
     <ion-item>
       <ion-label>Fecha</ion-label>
-      <ion-datetime formControlName="date" displayFormat="MMM/YYYY" min="1994-03"></ion-datetime>
+      <ion-datetime formControlName="date" displayFormat="MMM/YYYY" min="1994-03" mode="ios"></ion-datetime>
     </ion-item>
 
 

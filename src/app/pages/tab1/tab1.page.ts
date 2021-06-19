@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
+import { ReciverService } from '../../services/last-item/reciver.service';
 
 
 @Component({
@@ -13,7 +14,7 @@ export class Tab1Page implements OnInit {
   categories = ['Banco', 'Criptomonedas'];
   title = "Añadir patrimonio";
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, private reciverService: ReciverService) { }
 
   ngOnInit() {
     this.patrimonial = this.formBuilder.group({
@@ -33,18 +34,24 @@ export class Tab1Page implements OnInit {
 
     this.patrimonial.value.date = dateformat;
 
-    const recoveredData = localStorage.getItem('patrimonial');
+    const recoveredData = this.reciverService.theItems;
 
     if (recoveredData == null) {
-      localStorage.setItem('patrimonial', JSON.stringify([this.patrimonial.value]));
+      this.reciverService.theItems = JSON.stringify([this.patrimonial.value]);
+
+      // localStorage.setItem('patrimonial', JSON.stringify([this.patrimonial.value]));
 
     } else {
+
+
       let data = JSON.parse(recoveredData);
 
       const data_filter = data.filter(this.duplicate, this);
 
       data_filter.push(this.patrimonial.value)
-      localStorage.setItem('patrimonial', JSON.stringify(data_filter));
+      // localStorage.setItem('patrimonial', JSON.stringify(data_filter));
+
+      this.reciverService.theItems = JSON.stringify(data_filter);
 
     }
 
