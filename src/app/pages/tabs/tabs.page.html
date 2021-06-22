@@ -1,0 +1,21 @@
+<ion-tabs>
+
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="list/general" [class.active-item]="selectedPath.includes('general')">
+      <ion-icon name="triangle"></ion-icon>
+      <ion-label>General</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="list/banco" [class.active-item]="selectedPath.includes('banco')">
+      <ion-icon name="ellipse"></ion-icon>
+      <ion-label>Banco</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="list/criptomonedas" [class.active-item]="selectedPath.includes('criptomonedas')">
+      <ion-icon name="square"></ion-icon>
+      <ion-label>Criptomonedas</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+
+</ion-tabs>
+ 

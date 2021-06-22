@@ -5,7 +5,7 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class ReciverService {
-
+  
   private items = new BehaviorSubject(this.theItems);
   private lastItem = new BehaviorSubject<{}>({});
 
@@ -14,9 +14,10 @@ export class ReciverService {
   $getItems = this.items.asObservable();
 
 
+
   constructor() { }
 
-  sendLastItem(item) {
+  set theLastItem(item) {
     this.lastItem.next(item);
   }
 
@@ -24,10 +25,13 @@ export class ReciverService {
     this.items.next(items);
     localStorage.setItem('patrimonial', items);
   }
- 
+
   get theItems() {
     return localStorage.getItem('patrimonial');
   }
+
+
+ 
 
 
 }

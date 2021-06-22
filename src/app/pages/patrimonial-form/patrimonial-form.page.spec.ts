@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { Tab2Page } from './tab2.page';
+import { PatrimonialForm } from './patrimonial-form.page';
 
-describe('Tab2Page', () => {
-  let component: Tab2Page;
-  let fixture: ComponentFixture<Tab2Page>;
+describe('PatrimonialForm', () => {
+  let component: PatrimonialForm;
+  let fixture: ComponentFixture<PatrimonialForm>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [Tab2Page],
+      declarations: [PatrimonialForm],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(Tab2Page);
+    fixture = TestBed.createComponent(PatrimonialForm);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

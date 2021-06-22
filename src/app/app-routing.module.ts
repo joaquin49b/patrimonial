@@ -4,11 +4,15 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
+    loadChildren: () => import('./pages/tabs/tabs.module').then(m => m.TabsPageModule)
   },
   {
     path: 'detail',
     loadChildren: () => import('./pages/detail/detail.module').then( m => m.DetailPageModule)
+  },
+  {
+    path: 'patrimonial-form',
+    loadChildren: () => import('./pages/patrimonial-form/patrimonial-form.module').then( m => m.PatrimonialFormModule)
   }
 ];
 @NgModule({

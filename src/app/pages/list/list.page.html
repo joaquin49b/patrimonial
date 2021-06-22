@@ -8,25 +8,34 @@
       <th mat-header-cell *matHeaderCellDef> Fecha </th>
       <td mat-cell *matCellDef="let element">{{element.date}} </td>
     </ng-container>
-
+  
     <ng-container matColumnDef="initPatrimonialValue">
       <th mat-header-cell *matHeaderCellDef> Capital inicial </th>
       <td mat-cell *matCellDef="let element">{{element.initPatrimonialValue}}€ </td>
     </ng-container>
-
+  
     <ng-container matColumnDef="endPatrimonialValue">
       <th mat-header-cell *matHeaderCellDef> Capital final </th>
       <td mat-cell *matCellDef="let element">{{element.endPatrimonialValue}}€ </td>
     </ng-container>
-
+  
     <ng-container matColumnDef="save">
       <th mat-header-cell *matHeaderCellDef> Ahorro </th>
       <td mat-cell *matCellDef="let element">
         {{(element.endPatrimonialValue * 100) / element.initPatrimonialValue | number: '1.0-2'  }}%</td>
     </ng-container>
-
+  
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="clickedRow(row)"></tr>
   </table>
+
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button routerLink='/patrimonial-form'>
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  
 
 </ion-content>
