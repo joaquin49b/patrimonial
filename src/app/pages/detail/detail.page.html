@@ -8,3 +8,32 @@
     </ion-title>
   </ion-toolbar>
 </ion-header>
+
+
+<ion-content [fullscreen]="true">
+
+
+
+  <ion-card>
+
+    <ion-grid fixed>
+      <ion-row>
+        <ion-col size="12" class="ion-text-center">
+
+          <circle-progress [percent]="progress" [showSubtitle]="true" [subtitle]="progressText"
+            [outerStrokeColor]="_outerStrokeColor" [innerStrokeColor]="_innerStrokeColor"></circle-progress>
+
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+
+    <ion-card-header>
+      <ion-card-subtitle>Awesome Subtitle</ion-card-subtitle>
+      <ion-card-title>Awesome Title</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      Awesome content
+    </ion-card-content>
+  </ion-card>
+</ion-content>

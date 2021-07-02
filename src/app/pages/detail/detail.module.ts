@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
+import { NgCircleProgressModule } from 'ng-circle-progress';
+
 import { ComponentsModule } from '../../components/components.module';
 
 import { DetailPageRoutingModule } from './detail-routing.module';
@@ -16,7 +18,8 @@ import { DetailPage } from './detail.page';
     FormsModule,
     IonicModule,
     DetailPageRoutingModule,
-    ComponentsModule
+    ComponentsModule,
+    NgCircleProgressModule
   ],
   declarations: [DetailPage]
 })
